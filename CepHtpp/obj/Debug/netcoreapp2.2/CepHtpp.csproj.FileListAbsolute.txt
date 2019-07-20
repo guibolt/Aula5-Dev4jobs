@@ -1,0 +1,11 @@
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\bin\Debug\netcoreapp2.2\CepHtpp.deps.json
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\bin\Debug\netcoreapp2.2\CepHtpp.runtimeconfig.json
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\bin\Debug\netcoreapp2.2\CepHtpp.runtimeconfig.dev.json
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\bin\Debug\netcoreapp2.2\CepHtpp.dll
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\bin\Debug\netcoreapp2.2\CepHtpp.pdb
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\obj\Debug\netcoreapp2.2\CepHtpp.csprojAssemblyReference.cache
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\obj\Debug\netcoreapp2.2\CepHtpp.csproj.CoreCompileInputs.cache
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\obj\Debug\netcoreapp2.2\CepHtpp.AssemblyInfoInputs.cache
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\obj\Debug\netcoreapp2.2\CepHtpp.AssemblyInfo.cs
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\obj\Debug\netcoreapp2.2\CepHtpp.dll
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepHtpp\obj\Debug\netcoreapp2.2\CepHtpp.pdb
