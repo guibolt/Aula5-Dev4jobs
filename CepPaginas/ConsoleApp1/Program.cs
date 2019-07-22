@@ -10,82 +10,27 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Local L = new Local();
+            List<string> lst = new List<string>();
             List<Local> Ceps = new List<Local>();
+            L.LotarLista(lst);
+
+
             int contador = 0, decisao;
 
-            #region "lista"
 
-           
-            List<string> cepsguarda = new List<string>();
-
-            cepsguarda.Add("05102000");
-            cepsguarda.Add("41390200");
-            cepsguarda.Add("36021240");
-            cepsguarda.Add("78140205");
-            cepsguarda.Add("57080100");
-            cepsguarda.Add("58410387");
-            cepsguarda.Add("77433200");
-            cepsguarda.Add("58087040");
-            cepsguarda.Add("88816262");
-            cepsguarda.Add("69912645");
-            cepsguarda.Add("76870690");
-            cepsguarda.Add("17053520");
-            cepsguarda.Add("72425143");
-            cepsguarda.Add("57038050");
-            cepsguarda.Add("12947260");
-            cepsguarda.Add("75802315");
-            cepsguarda.Add("18705850");
-            cepsguarda.Add("77064110");
-            cepsguarda.Add("65919290");
-            cepsguarda.Add("76962303");
-            cepsguarda.Add("35700279");
-            cepsguarda.Add("29900850");
-            cepsguarda.Add("60020295");
-            cepsguarda.Add("64207670");
-            cepsguarda.Add("69036666");
-            cepsguarda.Add("68901341");
-            cepsguarda.Add("29104451");
-            cepsguarda.Add("17210563");
-            cepsguarda.Add("78148594");
-            cepsguarda.Add("57039640");
-            cepsguarda.Add("77805020");
-            cepsguarda.Add("91440026");
-            cepsguarda.Add("29015320");
-            cepsguarda.Add("65061237");
-            cepsguarda.Add("75145115");
-            cepsguarda.Add("78043394");
-            cepsguarda.Add("65055622");
-            cepsguarda.Add("13481233");
-            cepsguarda.Add("70631902");
-            cepsguarda.Add("69093096");
-            cepsguarda.Add("74925390");
-            cepsguarda.Add("78050518");
-            cepsguarda.Add("64083220");
-            cepsguarda.Add("72806190");
-            cepsguarda.Add("57086139");
-            cepsguarda.Add("57602335");
-            cepsguarda.Add("57081012");
-            cepsguarda.Add("76814170");
-            cepsguarda.Add("49015400");
-            cepsguarda.Add("73365160"); 
-            cepsguarda.Add("49042240");
-            #endregion
-
-            
-            
-       
 
             while (true)
             {
                 Console.WriteLine("Seja bem vindo, quantos registros você deseja por pagina?");
                 int registro = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Qual pagina "); 
+                Console.WriteLine("Qual pagina ");
 
 
 
                 #region "Json?"
-                foreach (var ceps in cepsguarda)
+                foreach (var ceps in lst)
                 {
                     try
                     {
@@ -98,12 +43,19 @@ namespace ConsoleApp1
                             var streamDados = resposta.GetResponseStream();
                             StreamReader reader = new StreamReader(streamDados);
                             object objResponse = reader.ReadToEnd();
-                            //  Console.WriteLine(objResponse.ToString());
+                            Console.WriteLine(objResponse.ToString());
                             var local = JsonConvert.DeserializeObject<Local>(objResponse.ToString());
 
                             Ceps.Add(local);
                             contador++;
                         }
+
+                        string path = @"C:\Users\guibo\Desktop\Aula5\Aula5-Dev4jobs\CepPaginas\Arquivo/object";
+                        // convertendo e escrevendo o json 
+                        StreamWriter sw2 = new StreamWriter(path);
+                        string g2 = JsonConvert.SerializeObject(Ceps);
+                        sw2.WriteLine(g2);
+                        sw2.Close();
                     }
                     catch (WebException e)
                     {
@@ -111,7 +63,7 @@ namespace ConsoleApp1
                     }
                     Console.WriteLine($"Foram registrados {contador} Ceps");
                 }
-            #endregion
+                #endregion
 
 
 
@@ -128,7 +80,7 @@ namespace ConsoleApp1
                 //}
 
             }
-        
+
 
 
         }
@@ -136,6 +88,6 @@ namespace ConsoleApp1
 
     }
 
-    
-    
+
+
 }
