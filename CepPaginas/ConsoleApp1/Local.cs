@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Text;
+using System.Linq;
 
 namespace ConsoleApp1
 {
@@ -9,18 +11,21 @@ namespace ConsoleApp1
         public string Cep { get; set; }
         public string Logradouro { get; set; }
         public string Complemento { get; set; }
+        public string Bairro { get; set; }
         public string Localidade { get; set; }
         public string Uf { get; set; }
         public string Unidade { get; set; }
         public string Ibge { get; set; }
         public string Gia { get; set; }
+        public string dataPesquisa { get; set; }
 
         public Local() { }
-        public Local(string cep, string logradouro, string complemento, string localidade, string uf, string unidade, string ibge, string gia)
+        public Local(string cep, string logradouro, string complemento, string bairro ,string localidade, string uf, string unidade, string ibge, string gia)
         {
             Cep = cep;
             Logradouro = logradouro;
             Complemento = complemento;
+            Bairro = bairro;
             Localidade = localidade;
             Uf = uf;
             Unidade = unidade;
@@ -81,5 +86,13 @@ namespace ConsoleApp1
             lst.Add("49015400");
             lst.Add("73365160");
         }
+            
+
+       public void PulaLinha()
+        {
+            Console.WriteLine("");
+        } 
+           
+
     }
-}
+} 
