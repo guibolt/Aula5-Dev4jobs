@@ -20,3 +20,14 @@ C:\Users\guibo\Desktop\Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\net
 C:\Users\guibo\Desktop\Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.AssemblyInfo.cs
 C:\Users\guibo\Desktop\Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.dll
 C:\Users\guibo\Desktop\Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.pdb
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.deps.json
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.runtimeconfig.json
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.dll
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.pdb
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.AssemblyInfo.cs
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.dll
+C:\Users\Treinamento 5\Desktop\Projeto Aula5\Aula5-Dev4jobs\CepPaginas\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.pdb

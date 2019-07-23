@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\CepPaginas\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\Aula5-Dev4jobs\\CepPaginas\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\CepPaginas\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\Aula5-Dev4jobs\\CepPaginas\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\CepPaginas\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\Aula5-Dev4jobs\\CepPaginas\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\CepPaginas\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectPath": "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\Aula5-Dev4jobs\\CepPaginas\\ConsoleApp1\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\Treinamento 5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\CepPaginas\\ConsoleApp1\\obj\\",
+        "outputPath": "C:\\Users\\Treinamento 5\\Desktop\\Projeto Aula5\\Aula5-Dev4jobs\\CepPaginas\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

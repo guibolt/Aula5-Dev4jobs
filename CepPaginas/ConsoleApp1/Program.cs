@@ -15,7 +15,7 @@ namespace ConsoleApp1
             List<Local> Ceps = new List<Local>();
             L.LotarLista(lst);
             int contador = 0, decisao;
-            #region "Json?"
+            #region "Json"
             foreach (var ceps in lst)
             {
                 try
@@ -36,12 +36,6 @@ namespace ConsoleApp1
                         contador++;
                     }
                     Ceps = Ceps.OrderBy(x => x.Uf).ThenBy(x => x.dataPesquisa).ToList();
-                    string path = @"C:\Users\Treinamento 5\Desktop\Projeto Aula5\CepPaginas\Arquivo/object";
-                    // convertendo e escrevendo o json 
-                    StreamWriter sw2 = new StreamWriter(path);
-                    string g2 = JsonConvert.SerializeObject(Ceps);
-                    sw2.WriteLine(g2);
-                    sw2.Close();
                 }
                 catch (WebException e)
                 {
@@ -51,67 +45,55 @@ namespace ConsoleApp1
             }
             #endregion
 
-
             L.PulaLinha();
            
             string cont;
             // definir as paginas 
             Console.WriteLine("Seja bem vindo, quantos registros você deseja por pagina?");
             L.PulaLinha();
-            int registro = int.Parse(Console.ReadLine());
-            int paginas = 50 / registro;
-            if (50 % registro != 0) { paginas += 1; }
-
-            do
+            try
             {
-                // imprimir o menu 
-                for (int i = 1; i <= paginas; i++)
+                int registro = int.Parse(Console.ReadLine());
+                int paginas = 50 / registro;
+                if (50 % registro != 0) { paginas += 1; }
+
+                do
                 {
-                    L.PulaLinha();
-                    Console.WriteLine($"Digite {i} para pagina {i}");
-                    L.PulaLinha();
-
-                }
-
-                Int32.TryParse(Console.ReadLine(), out decisao);
-
-                if (decisao <= 0 || decisao > paginas)
-                {
-                    Console.WriteLine("Essa pagina nao existe");
-                    L.PulaLinha();
-
-                }
-                else
-                {
-                    var result = Ceps.Skip((decisao - 1) * registro).Take(registro);
-
-                    foreach (var item in result)
+                    // imprimir o menu 
+                    for (int i = 1; i <= paginas; i++)
                     {
-                        Console.WriteLine($"CEP: {item.Cep} Logradouro: {item.Logradouro} Bairro {item.Bairro} UF: {item.Uf} Hora de registro {item.dataPesquisa}");
+                        L.PulaLinha();
+                        Console.WriteLine($"Digite {i} para pagina {i}");
                         L.PulaLinha();
                     }
-                }
 
+                    Int32.TryParse(Console.ReadLine(), out decisao);
 
+                    if (decisao <= 0 || decisao > paginas)
+                    {
+                        Console.WriteLine("Essa pagina nao existe");
+                        L.PulaLinha();
+                    }
+                    else
+                    {
+                        var result = Ceps.Skip((decisao - 1) * registro).Take(registro);
 
-                Console.WriteLine("Deseja continuar?");
-                L.PulaLinha();
-                cont = Console.ReadLine().ToLower();
-              
-            } while (cont == "s");
-         
+                        foreach (var item in result)
+                        {
+                            Console.WriteLine($"CEP: {item.Cep} Logradouro: {item.Logradouro} Bairro {item.Bairro} UF: {item.Uf} Hora de registro {item.dataPesquisa}");
+                            L.PulaLinha();
+                        }
+                    }
+                    Console.WriteLine("Deseja continuar?");
+                    L.PulaLinha();
+                    cont = Console.ReadLine().ToLower();
 
-
-
-
-
-
-            // pagar o andre pela a ajuda 
+                } while (cont == "s");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            } 
         }
-
-
     }
-
-
-
 }
