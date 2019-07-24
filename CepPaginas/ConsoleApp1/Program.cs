@@ -75,7 +75,7 @@ namespace ConsoleApp1
 
                         foreach (var item in result)
                         {
-                            Console.WriteLine($"CEP: {item.Cep} Logradouro: {item.Logradouro} Bairro {item.Bairro} UF: {item.Uf} Hora de registro {item.dataPesquisa}");
+                            Console.WriteLine($"CEP: {item.Cep} Logradouro: {item.Logradouro} Bairro {item.Bairro} UF: {item.Uf} ");
                             Request.PulaLinha();
                         }
                     }
