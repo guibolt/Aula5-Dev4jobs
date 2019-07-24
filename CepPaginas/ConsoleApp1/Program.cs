@@ -4,53 +4,48 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Linq;
+using ConsoleApp1.Entidades.Requisition;
+using System.Threading.Tasks;
+
 namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Local L = new Local();
             List<string> lst = new List<string>();
             List<Local> Ceps = new List<Local>();
-            L.LotarLista(lst);
-            int contador = 0, decisao;
+            Request.LotarLista(lst);
+
+            Console.WriteLine("Carregando...");
+            int contador = 0;
+            string cont;
             #region "Json"
             foreach (var ceps in lst)
             {
                 try
                 {
-
-                    var requisicaoWeb = WebRequest.CreateHttp($"https://viacep.com.br/ws/{ceps}/json");
-                    requisicaoWeb.Method = "GET";
-                    requisicaoWeb.UserAgent = "RequisicaoWebDemo";
-
-                    using (var resposta = requisicaoWeb.GetResponse())
-                    {
-                        var streamDados = resposta.GetResponseStream();
-                        StreamReader reader = new StreamReader(streamDados);
-                        object objResponse = reader.ReadToEnd();
-                        var local = JsonConvert.DeserializeObject<Local>(objResponse.ToString());
-                        local.dataPesquisa = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss:ff");
-                        Ceps.Add(local);
-                        contador++;
-                    }
+                    var local = JsonConvert.DeserializeObject<Local>(await Request.GetUser(ceps, Ceps));
+                    Ceps.Add(local);
+                    contador++;
                     Ceps = Ceps.OrderBy(x => x.Uf).ThenBy(x => x.dataPesquisa).ToList();
                 }
                 catch (WebException e)
                 {
                     Console.WriteLine(e.Message);
+                    Console.ReadLine();
                 }
-                Console.WriteLine($"Foram registrados {contador} Ceps");
+             
             }
-            #endregion
-
-            L.PulaLinha();
-           
-            string cont;
+            Console.WriteLine($"Foram registrados {contador} Ceps, aperte enter para começar");
+            Console.ReadLine();
+            Console.Clear();
+             #endregion
+        
+             
             // definir as paginas 
             Console.WriteLine("Seja bem vindo, quantos registros você deseja por pagina?");
-            L.PulaLinha();
+            Request.PulaLinha();
             try
             {
                 int registro = int.Parse(Console.ReadLine());
@@ -62,17 +57,17 @@ namespace ConsoleApp1
                     // imprimir o menu 
                     for (int i = 1; i <= paginas; i++)
                     {
-                        L.PulaLinha();
+                        Request.PulaLinha();
                         Console.WriteLine($"Digite {i} para pagina {i}");
-                        L.PulaLinha();
+                        Request.PulaLinha();
                     }
 
-                    Int32.TryParse(Console.ReadLine(), out decisao);
+                    Int32.TryParse(Console.ReadLine(), out int  decisao);
 
                     if (decisao <= 0 || decisao > paginas)
                     {
                         Console.WriteLine("Essa pagina nao existe");
-                        L.PulaLinha();
+                        Request.PulaLinha();
                     }
                     else
                     {
@@ -81,12 +76,12 @@ namespace ConsoleApp1
                         foreach (var item in result)
                         {
                             Console.WriteLine($"CEP: {item.Cep} Logradouro: {item.Logradouro} Bairro {item.Bairro} UF: {item.Uf} Hora de registro {item.dataPesquisa}");
-                            L.PulaLinha();
+                            Request.PulaLinha();
                         }
                     }
-                    Console.WriteLine("Deseja continuar?");
-                    L.PulaLinha();
-                    cont = Console.ReadLine().ToLower();
+                    Console.WriteLine("Deseja consultar outra pagina ? s para sim e n para nao");
+                    Request.PulaLinha();
+                     cont = Console.ReadLine().ToLower();
 
                 } while (cont == "s");
             }
