@@ -16,9 +16,8 @@ namespace ConsoleApp1
             List<string> lst = new List<string>();
             List<Local> Ceps = new List<Local>();
             Request.LotarLista(lst);
-
             Console.WriteLine("Carregando...");
-            int contador = 0;
+            
             string cont;
             #region "Json"
             foreach (var ceps in lst)
@@ -27,68 +26,79 @@ namespace ConsoleApp1
                 {
                     var local = JsonConvert.DeserializeObject<Local>(await Request.GetUser(ceps, Ceps));
                     Ceps.Add(local);
-                    contador++;
-                    Ceps = Ceps.OrderBy(x => x.Uf).ThenBy(x => x.dataPesquisa).ToList();
                 }
                 catch (WebException e)
                 {
                     Console.WriteLine(e.Message);
                     Console.ReadLine();
                 }
-             
+
             }
-            Console.WriteLine($"Foram registrados {contador} Ceps, aperte enter para começar");
+            Console.ReadLine();
+            Ceps = Ceps.OrderBy(x => x.Uf).ThenBy(x => x.dataPesquisa).ToList();
+            Console.WriteLine(Ceps[0].Cep);
+            Console.WriteLine($"Foram registrados {Ceps.Count} Ceps, aperte enter para começar");
             Console.ReadLine();
             Console.Clear();
-             #endregion
-        
-             
+            #endregion
+
+
             // definir as paginas 
             Console.WriteLine("Seja bem vindo, quantos registros você deseja por pagina?");
             Request.PulaLinha();
-            try
+
+            Int32.TryParse(Console.ReadLine(), out int registro);
+
+            while (registro <= 0 || registro > Ceps.Count)
             {
-                int registro = int.Parse(Console.ReadLine());
-                int paginas = 50 / registro;
-                if (50 % registro != 0) { paginas += 1; }
-
-                do
-                {
-                    // imprimir o menu 
-                    for (int i = 1; i <= paginas; i++)
-                    {
-                        Request.PulaLinha();
-                        Console.WriteLine($"Digite {i} para pagina {i}");
-                        Request.PulaLinha();
-                    }
-
-                    Int32.TryParse(Console.ReadLine(), out int  decisao);
-
-                    if (decisao <= 0 || decisao > paginas)
-                    {
-                        Console.WriteLine("Essa pagina nao existe");
-                        Request.PulaLinha();
-                    }
-                    else
-                    {
-                        var result = Ceps.Skip((decisao - 1) * registro).Take(registro);
-
-                        foreach (var item in result)
-                        {
-                            Console.WriteLine($"CEP: {item.Cep} Logradouro: {item.Logradouro} Bairro {item.Bairro} UF: {item.Uf} ");
-                            Request.PulaLinha();
-                        }
-                    }
-                    Console.WriteLine("Deseja consultar outra pagina ? s para sim e n para nao");
-                    Request.PulaLinha();
-                     cont = Console.ReadLine().ToLower();
-
-                } while (cont == "s");
+                Console.WriteLine("Numero de registro invalido. digite novamente");
+                Int32.TryParse(Console.ReadLine(), out registro);
             }
-            catch (Exception e)
+
+            int paginas = Ceps.Count / registro;
+            if (50 % registro != 0) { paginas += 1; }
+
+            do
             {
-                Console.WriteLine(e.Message);
-            } 
+                // imprimir o menu 
+                for (int i = 1; i <= paginas; i++)
+                {
+                    Request.PulaLinha();
+                    Console.WriteLine($"Digite {i} para pagina {i}");
+                    Request.PulaLinha();
+                }
+
+                Int32.TryParse(Console.ReadLine(), out int decisao);
+
+                if (decisao <= 0 || decisao > paginas)
+                {
+                    Console.WriteLine("Essa pagina nao existe");
+                    Request.PulaLinha();
+                }
+                else
+                {
+                    var result = Ceps.Skip((decisao - 1) * registro).Take(registro);
+
+                    foreach (var item in result)
+                    {
+                        Console.WriteLine($"CEP: {item.Cep} Logradouro: {item.Logradouro} Bairro {item.Bairro} UF: {item.Uf} ");
+                        Request.PulaLinha();
+                    }
+                }
+                Console.WriteLine("Deseja consultar outra pagina ? s para sim e n para nao");
+                Request.PulaLinha();
+                cont = Console.ReadLine().ToLower();
+                while (cont != "s" && cont != "n")
+                {
+                    Console.WriteLine("Opção errada digite novamente!");
+                    cont = Console.ReadLine().ToLower();
+                }
+            } while (cont == "s");
         }
+
     }
+
+
 }
+
+

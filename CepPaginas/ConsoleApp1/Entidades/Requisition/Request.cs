@@ -81,6 +81,7 @@ namespace ConsoleApp1.Entidades.Requisition
             lst.Add("76814170");
             lst.Add("49015400");
             lst.Add("73365160");
+            
         }
     }
 }
