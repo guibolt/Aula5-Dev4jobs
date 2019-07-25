@@ -35,7 +35,7 @@ namespace ConsoleApp1.Entidades.Requisition
             lst.Add("41390200");
             lst.Add("36021240");
             lst.Add("78140205");
-            lst.Add("57080100");
+            lst.Add("41308265");
             lst.Add("58410387");
             lst.Add("77433200");
             lst.Add("58087040");
@@ -75,12 +75,13 @@ namespace ConsoleApp1.Entidades.Requisition
             lst.Add("78050518");
             lst.Add("64083220");
             lst.Add("72806190");
-            lst.Add("57086139");
+            lst.Add("72668900");
             lst.Add("57608010");
-            lst.Add("57081012");
+            lst.Add("59150590");
             lst.Add("76814170");
             lst.Add("49015400");
             lst.Add("73365160");
+            lst.Add("96217084");
             
         }
     }

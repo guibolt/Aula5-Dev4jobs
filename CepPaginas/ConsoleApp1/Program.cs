@@ -25,23 +25,21 @@ namespace ConsoleApp1
                 try
                 {
                     var local = JsonConvert.DeserializeObject<Local>(await Request.GetUser(ceps, Ceps));
-                    Ceps.Add(local);
+                    if (local.Cep != null) Ceps.Add(local);
                 }
                 catch (WebException e)
                 {
                     Console.WriteLine(e.Message);
                     Console.ReadLine();
                 }
-
             }
-            Console.ReadLine();
+    
             Ceps = Ceps.OrderBy(x => x.Uf).ThenBy(x => x.dataPesquisa).ToList();
-            Console.WriteLine(Ceps[0].Cep);
+            
             Console.WriteLine($"Foram registrados {Ceps.Count} Ceps, aperte enter para começar");
             Console.ReadLine();
             Console.Clear();
             #endregion
-
 
             // definir as paginas 
             Console.WriteLine("Seja bem vindo, quantos registros você deseja por pagina?");
@@ -67,7 +65,6 @@ namespace ConsoleApp1
                     Console.WriteLine($"Digite {i} para pagina {i}");
                     Request.PulaLinha();
                 }
-
                 Int32.TryParse(Console.ReadLine(), out int decisao);
 
                 if (decisao <= 0 || decisao > paginas)
